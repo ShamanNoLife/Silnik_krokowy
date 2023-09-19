@@ -1,0 +1,171 @@
+import serial
+import time
+
+UART_DRIVER=serial.Serial('/dev/ttyS14', baudrate=115200)
+
+period=input("Podaj okres impulsu (w ms): ")
+dir=input("Podaj kierunek kręcenia (0 - w przód, 1 - w tył): ")
+nom=input("Podaj licznik ułamka obrotu: ")
+denom=input("Podaj mianownik ułamka obrotu: ")
+
+def one_liter_forward():
+    #period
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    #direction
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    #nominator
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    #denominator
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('\r'))
+    time.sleep(0.01)
+
+def one_liter_backward():
+    #period
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    #direction
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    #nominator
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    #denominator
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('\r'))
+    time.sleep(0.01)
+
+def onetwelve_liter_forward():
+    #period
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode(' '))
+    time.sleep(0.01)
+    #direction
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode(' '))
+    time.sleep(0.01)
+    #nominator
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode(' '))
+    time.sleep(0.01)
+    #denominator
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('2'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode(' '))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('\r'))
+    time.sleep(0.01)
+
+def onetwelve_liter_backward():
+    #period
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode(' '))
+    time.sleep(0.01)
+    #direction
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode(' '))
+    time.sleep(0.01)
+    #nominator
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode(' '))
+    time.sleep(0.01)
+    #denominator
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('0'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('1'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('2'))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode(' '))
+    time.sleep(0.01)
+    UART_DRIVER.write(str.encode('\r'))
+    time.sleep(0.01)
+
+def main():
+    for i in range(12):
+        onetwelve_liter_backward()
+        time.sleep(2)
+        onetwelve_liter_forward()
+        time.sleep(2)
+
+if __name__ == "__main__":
+    main()
