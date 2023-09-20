@@ -1,0 +1,520 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2023 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <ctype.h>
+#include <stdbool.h>
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define STEPS_PER_LITER 7440//rotations per liter
+/*
+ * 200 microsteps per a full motor rotation (360 degrees)
+ * water meter 1,6m3 - x microsteps/l
+ * water meter 2,5m3 - 7440 microsteps/l
+ * water meter 4m3 - y microsteps/l
+ */
+#define ENA 1//  1 - ENA+; 0 - ENA-
+#define LINE_MAX_LENGTH	20
+#define PULSE_PORT	GPIOA
+#define PULSE_PIN	GPIO_PIN_9
+#define DIR_PORT	GPIOA
+#define DIR_PIN		GPIO_PIN_8
+#define ENA_PORT	GPIOA
+#define ENA_PIN		GPIO_PIN_2
+#define FORWARD 	0
+#define BACKWARD 	1
+#define SIZE_OF_VARIABLE 10
+#define MAX_TOKENS 5
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+UART_HandleTypeDef huart2;
+
+/* USER CODE BEGIN PV */
+const uint8_t duty_cycle = 0x32;
+uint8_t value;
+enum STATE_OF_PROGRAM{
+	START,
+	STOP
+}state;
+
+typedef struct{
+	uint8_t UART_data;
+	uint8_t data_counter;
+	int counter;
+}communication_para;
+
+typedef struct{
+	int pulses;
+	int period;
+	int direction;
+	int nominator;
+	int denominator;
+	int when_change;
+}variable_to_set_driver;
+
+typedef struct{
+	int command_was_sent;
+	int if_variable_is_digital;
+	int equal_zero;
+	int too_long_argument;
+}flags;
+
+communication_para STM_DRIVER;
+variable_to_set_driver VAR_TO_SET_DRIVER;
+flags driver_flag;
+static char UART_buf[LINE_MAX_LENGTH];
+char* tokens[MAX_TOKENS];
+static uint32_t line_length;
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_USART2_UART_Init(void);
+/* USER CODE BEGIN PFP */
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_USART2_UART_Init(void);
+void GET_DATA(uint8_t var);
+void CHECK_DATA(void);
+void CHECK_LENGHT(void);
+void CLEAR_BUFF(void);
+void CLEAR_TOKEN(void);
+void WRITE_DATA(void);
+void RUN(void);
+void START_PULSES(void);
+void SET_DIRECTION(void);
+void CHANGE_DIRECTION(void);
+uint32_t ASCII_TO_uint8_t(const char *table);
+void splitString(const char* input_string, char** tokens);
+void motor_run(void);
+int count_steps(void);
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+int __io_putchar(int ch){
+    HAL_UART_Transmit(&huart2, (uint8_t*)&ch, 1, 0);\
+    return 1;
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+  if (huart == &huart2) {
+	GET_DATA(value);
+	HAL_UART_Receive_IT(&huart2, &value, 1);
+	//HAL_UART_Transmit(&huart2, &value, 1, 0);
+ }
+}
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
+	STM_DRIVER.UART_data= 0x00;
+	STM_DRIVER.data_counter = 0x00;
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_USART2_UART_Init();
+  /* USER CODE BEGIN 2 */
+  HAL_Delay(100);
+  if (ENA == 1){
+  	  HAL_GPIO_WritePin(ENA_PORT, ENA_PIN, GPIO_PIN_SET);
+    }
+    else if (ENA == 0){
+  	  HAL_GPIO_WritePin(ENA_PORT, ENA_PIN, GPIO_PIN_RESET);
+    }
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1){
+	  HAL_UART_Receive_IT(&huart2, &value, 1);
+	  if(driver_flag.command_was_sent==1){
+		RUN();
+	  }
+  }
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+
+}
+  /* USER CODE END 3 */
+
+
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Configure the main internal regulator output voltage
+  */
+  __HAL_RCC_PWR_CLK_ENABLE();
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8|GPIO_PIN_9, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : PA8 PA9 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PA10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_10;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
+}
+
+/* USER CODE BEGIN 4 */
+
+void GET_DATA(uint8_t var){
+	if (value == '\r' || value == '\n') {
+			driver_flag.command_was_sent=1;
+	}
+	else if (value == '\177') {
+			if (line_length > 0) {
+			line_length--;
+			printf("\177 \177");
+		   }
+		}
+	else {
+		if (line_length >= LINE_MAX_LENGTH) {
+			line_length = 0;
+		}
+		UART_buf[line_length++] = value;
+		state=STOP;
+	}
+}
+
+void RUN(void){
+	driver_flag.command_was_sent=0;
+	WRITE_DATA();
+	if(driver_flag.if_variable_is_digital==1 && driver_flag.equal_zero==0 && driver_flag.too_long_argument==0){
+		motor_run();
+		HAL_Delay(10);
+	}
+	else{
+		printf("\r\nerror with arguments");
+	}
+	printf("\n");
+}
+
+void motor_run(void){
+	SET_DIRECTION();
+	START_PULSES();
+}
+
+void SET_DIRECTION(void){
+
+	if (VAR_TO_SET_DRIVER.direction == FORWARD){
+	  HAL_GPIO_WritePin(DIR_PORT, DIR_PIN, GPIO_PIN_RESET);
+	}
+	else if (VAR_TO_SET_DRIVER.direction == BACKWARD){
+	  HAL_GPIO_WritePin(DIR_PORT, DIR_PIN, GPIO_PIN_SET);
+	}
+}
+
+void CHANGE_DIRECTION(void){
+	if(VAR_TO_SET_DRIVER.direction == FORWARD){
+		VAR_TO_SET_DRIVER.direction = BACKWARD;
+	}
+	else{
+		VAR_TO_SET_DRIVER.direction = FORWARD;
+	}
+	SET_DIRECTION();
+}
+
+void START_PULSES(void){
+	int i=0,j=1,k=1;
+	state=START;
+	while(j==1){
+		switch(state){
+		case START:
+			HAL_GPIO_WritePin(PULSE_PORT, PULSE_PIN, GPIO_PIN_SET);
+			HAL_Delay(VAR_TO_SET_DRIVER.period*duty_cycle/100);
+			HAL_GPIO_WritePin(PULSE_PORT, PULSE_PIN, GPIO_PIN_RESET);
+			HAL_Delay(VAR_TO_SET_DRIVER.period*(100-duty_cycle)/100);
+			i++;
+			if(i>VAR_TO_SET_DRIVER.pulses){
+				state=STOP;
+			}
+			else if(i>VAR_TO_SET_DRIVER.when_change*k/100 && VAR_TO_SET_DRIVER.when_change!=0){
+				k++;
+				CHANGE_DIRECTION();
+			}
+			break;
+		case STOP:
+			j=0;
+			break;
+			}
+		}
+}
+
+void WRITE_DATA(void){
+	splitString(UART_buf,tokens);
+	VAR_TO_SET_DRIVER.period = ASCII_TO_uint8_t(tokens[0]);
+	VAR_TO_SET_DRIVER.direction = ASCII_TO_uint8_t(tokens[1]);
+	VAR_TO_SET_DRIVER.nominator = ASCII_TO_uint8_t(tokens[2]);
+	VAR_TO_SET_DRIVER.denominator = ASCII_TO_uint8_t(tokens[3]);
+	VAR_TO_SET_DRIVER.when_change = ASCII_TO_uint8_t(tokens[4]);
+	CHECK_DATA();
+	CHECK_LENGHT();
+	CLEAR_BUFF();
+	CLEAR_TOKEN();
+}
+
+void CHECK_DATA(void){
+	for(int i=1;i<MAX_TOKENS;i++){
+		driver_flag.if_variable_is_digital=1;
+		for(int j=0;j<strlen(tokens[i]);j++){
+			if(!isdigit((unsigned char)tokens[i][j])){
+				driver_flag.if_variable_is_digital=0;
+			}
+		}
+		if(driver_flag.if_variable_is_digital==0){
+			break;
+		}
+	}
+	if(VAR_TO_SET_DRIVER.period == 0 || VAR_TO_SET_DRIVER.nominator == 0 || VAR_TO_SET_DRIVER.denominator == 0){
+	  driver_flag.equal_zero=1;
+	}
+	else{
+		driver_flag.equal_zero=0;
+		VAR_TO_SET_DRIVER.pulses = count_steps();
+	}
+
+}
+
+int count_steps(void){
+	uint32_t microsteps = 0x00;
+	microsteps = STEPS_PER_LITER*VAR_TO_SET_DRIVER.nominator/VAR_TO_SET_DRIVER.denominator;
+	return microsteps;
+}
+
+void CHECK_LENGHT(void){
+	if(VAR_TO_SET_DRIVER.period>9999 || VAR_TO_SET_DRIVER.direction>1 || VAR_TO_SET_DRIVER.nominator>9999 || VAR_TO_SET_DRIVER.denominator>9999){
+		driver_flag.too_long_argument=1;
+	}
+	else{
+		driver_flag.too_long_argument=0;
+	}
+}
+
+void CLEAR_BUFF(void){
+	for(int i = 0;i<LINE_MAX_LENGTH;i++){
+		UART_buf[i]='\0';
+		}
+	line_length=0;
+}
+
+void CLEAR_TOKEN(void){
+	for (int i = 0; i < sizeof(tokens) / sizeof(tokens[0]); i++) {
+		tokens[i]=NULL;
+	}
+}
+
+uint32_t ASCII_TO_uint8_t(const char *table){
+	uint32_t result = 0;
+	uint32_t numeric_value=0;
+    int size = SIZE_OF_VARIABLE;
+    for (int i = 0; i < size; i++) {
+    	if(table[i]==' ' || table[i]=='\0'){
+    		break;
+    	}
+    	else{
+        	numeric_value = table[i] - '0';
+            result = result * 10 + numeric_value;
+    	}
+    }
+    return result;
+}
+
+void splitString(const char* input_string, char** tokens) {
+	const char delimiters[] = " \r\n";
+    char* copy_of_input = strdup(input_string);
+    char* token = strtok(copy_of_input, delimiters);
+
+    int token_count = 0;
+    while (token != NULL && token_count < MAX_TOKENS) {
+        tokens[token_count] = strdup(token);
+        token = strtok(NULL, delimiters);
+        token_count++;
+    }
+    free(copy_of_input);
+}
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */

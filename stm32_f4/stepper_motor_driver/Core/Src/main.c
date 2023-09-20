@@ -47,13 +47,13 @@
 #define PULSE_PORT	GPIOA
 #define PULSE_PIN	GPIO_PIN_9
 #define DIR_PORT	GPIOA
-#define DIR_PIN		GPIO_PIN_7
+#define DIR_PIN		GPIO_PIN_8
 #define ENA_PORT	GPIOA
 #define ENA_PIN		GPIO_PIN_2
-#define FORWARD 	1
-#define BACKWARD 	0
+#define FORWARD 	0
+#define BACKWARD 	1
 #define SIZE_OF_VARIABLE 10
-#define MAX_TOKENS 4
+#define MAX_TOKENS 5
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -67,6 +67,10 @@ UART_HandleTypeDef huart2;
 /* USER CODE BEGIN PV */
 const uint8_t duty_cycle = 0x32;
 uint8_t value;
+enum STATE_OF_PROGRAM{
+	START,
+	STOP
+}state;
 
 typedef struct{
 	uint8_t UART_data;
@@ -75,11 +79,12 @@ typedef struct{
 }communication_para;
 
 typedef struct{
-	int period;
 	int pulses;
+	int period;
+	int direction;
 	int nominator;
 	int denominator;
-	int direction;
+	int when_change;
 }variable_to_set_driver;
 
 typedef struct{
@@ -87,7 +92,6 @@ typedef struct{
 	int if_variable_is_digital;
 	int equal_zero;
 	int too_long_argument;
-	int RX;
 }flags;
 
 communication_para STM_DRIVER;
@@ -109,12 +113,18 @@ static void MX_USART2_UART_Init(void);
 void GET_DATA(uint8_t var);
 void CHECK_DATA(void);
 void CHECK_LENGHT(void);
+void CLEAR_BUFF(void);
+void CLEAR_TOKEN(void);
 void WRITE_DATA(void);
 void RUN(void);
-void motor_run(void);
-int count_steps(void);
+void START_PULSES(void);
+void SET_DIRECTION(void);
+void CHANGE_DIRECTION(void);
 uint32_t ASCII_TO_uint8_t(const char *table);
 void splitString(const char* input_string, char** tokens);
+void motor_run(void);
+int count_steps(void);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -128,7 +138,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
   if (huart == &huart2) {
 	GET_DATA(value);
 	HAL_UART_Receive_IT(&huart2, &value, 1);
-	HAL_UART_Transmit(&huart2, &value, 1, 0);
+	//HAL_UART_Transmit(&huart2, &value, 1, 0);
  }
 }
 /* USER CODE END 0 */
@@ -185,7 +195,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+
+}
   /* USER CODE END 3 */
 
 
@@ -220,7 +231,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV4;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
@@ -302,7 +313,6 @@ static void MX_GPIO_Init(void)
 void GET_DATA(uint8_t var){
 	if (value == '\r' || value == '\n') {
 			driver_flag.command_was_sent=1;
-			driver_flag.RX=0;
 	}
 	else if (value == '\177') {
 			if (line_length > 0) {
@@ -315,7 +325,7 @@ void GET_DATA(uint8_t var){
 			line_length = 0;
 		}
 		UART_buf[line_length++] = value;
-		driver_flag.RX=1;
+		state=STOP;
 	}
 }
 
@@ -329,14 +339,61 @@ void RUN(void){
 	else{
 		printf("\r\nerror with arguments");
 	}
-	for (int i = 0; i < sizeof(tokens) / sizeof(tokens[0]); i++) {
-		tokens[i]=NULL;
-	}
-	for(int i = 0;i<LINE_MAX_LENGTH;i++){
-		UART_buf[i]='\0';
-		}
-	line_length=0;
 	printf("\n");
+}
+
+void motor_run(void){
+	SET_DIRECTION();
+	START_PULSES();
+}
+
+void SET_DIRECTION(void){
+
+	if (VAR_TO_SET_DRIVER.direction == FORWARD){
+	  HAL_GPIO_WritePin(DIR_PORT, DIR_PIN, GPIO_PIN_RESET);
+	}
+	else if (VAR_TO_SET_DRIVER.direction == BACKWARD){
+	  HAL_GPIO_WritePin(DIR_PORT, DIR_PIN, GPIO_PIN_SET);
+	}
+}
+
+void CHANGE_DIRECTION(void){
+	if(VAR_TO_SET_DRIVER.direction == FORWARD){
+		VAR_TO_SET_DRIVER.direction = BACKWARD;
+	}
+	else{
+		VAR_TO_SET_DRIVER.direction = FORWARD;
+	}
+	SET_DIRECTION();
+}
+
+void START_PULSES(void){
+	int i=0,j=1,k=1;
+	state=START;
+	while(j==1){
+		switch(state){
+		case START:
+			HAL_GPIO_WritePin(PULSE_PORT, PULSE_PIN, GPIO_PIN_SET);
+			HAL_Delay(VAR_TO_SET_DRIVER.period*duty_cycle/100);
+			HAL_GPIO_WritePin(PULSE_PORT, PULSE_PIN, GPIO_PIN_RESET);
+			HAL_Delay(VAR_TO_SET_DRIVER.period*(100-duty_cycle)/100);
+			i++;
+			if(i>VAR_TO_SET_DRIVER.pulses){
+				state=STOP;
+			}
+			else if(i>VAR_TO_SET_DRIVER.when_change*k/100 && VAR_TO_SET_DRIVER.when_change!=0){
+				k++;
+				CHANGE_DIRECTION();
+			}
+			break;
+		case STOP:
+			j=0;
+			i=0;
+			k=0;
+			printf("2");
+			break;
+			}
+		}
 }
 
 void WRITE_DATA(void){
@@ -345,8 +402,11 @@ void WRITE_DATA(void){
 	VAR_TO_SET_DRIVER.direction = ASCII_TO_uint8_t(tokens[1]);
 	VAR_TO_SET_DRIVER.nominator = ASCII_TO_uint8_t(tokens[2]);
 	VAR_TO_SET_DRIVER.denominator = ASCII_TO_uint8_t(tokens[3]);
+	VAR_TO_SET_DRIVER.when_change = ASCII_TO_uint8_t(tokens[4]);
 	CHECK_DATA();
 	CHECK_LENGHT();
+	CLEAR_BUFF();
+	CLEAR_TOKEN();
 }
 
 void CHECK_DATA(void){
@@ -371,6 +431,12 @@ void CHECK_DATA(void){
 
 }
 
+int count_steps(void){
+	uint32_t microsteps = 0x00;
+	microsteps = STEPS_PER_LITER*VAR_TO_SET_DRIVER.nominator/VAR_TO_SET_DRIVER.denominator;
+	return microsteps;
+}
+
 void CHECK_LENGHT(void){
 	if(VAR_TO_SET_DRIVER.period>9999 || VAR_TO_SET_DRIVER.direction>1 || VAR_TO_SET_DRIVER.nominator>9999 || VAR_TO_SET_DRIVER.denominator>9999){
 		driver_flag.too_long_argument=1;
@@ -380,28 +446,17 @@ void CHECK_LENGHT(void){
 	}
 }
 
-void motor_run(void){
-	if (VAR_TO_SET_DRIVER.direction == FORWARD){
-	  HAL_GPIO_WritePin(DIR_PORT, DIR_PIN, GPIO_PIN_SET);
-	}
-	else if (VAR_TO_SET_DRIVER.direction == BACKWARD){
-	  HAL_GPIO_WritePin(DIR_PORT, DIR_PIN, GPIO_PIN_RESET);
-	}
-	for (int i=0;i<VAR_TO_SET_DRIVER.pulses;i++){
-			  HAL_GPIO_WritePin(PULSE_PORT, PULSE_PIN, GPIO_PIN_SET);
-			  HAL_Delay(VAR_TO_SET_DRIVER.period*duty_cycle/100);
-			  HAL_GPIO_WritePin(PULSE_PORT, PULSE_PIN, GPIO_PIN_RESET);
-			  HAL_Delay(VAR_TO_SET_DRIVER.period*(100-duty_cycle)/100);
-			  if(driver_flag.RX==1){
-				  break;
-			  }
-	}
+void CLEAR_BUFF(void){
+	for(int i = 0;i<LINE_MAX_LENGTH;i++){
+		UART_buf[i]='\0';
+		}
+	line_length=0;
 }
 
-int count_steps(void){
-	uint32_t microsteps = 0x00;
-	microsteps = STEPS_PER_LITER*VAR_TO_SET_DRIVER.nominator/VAR_TO_SET_DRIVER.denominator;
-	return microsteps;
+void CLEAR_TOKEN(void){
+	for (int i = 0; i < sizeof(tokens) / sizeof(tokens[0]); i++) {
+		tokens[i]=NULL;
+	}
 }
 
 uint32_t ASCII_TO_uint8_t(const char *table){

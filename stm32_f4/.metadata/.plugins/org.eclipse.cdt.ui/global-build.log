@@ -165,3 +165,627 @@ Finished building: default.size.stdout
  
 Finished building: stepper_motor_driver.list
  
+08:18:18 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f411retx.d" -MT"Core/Startup/startup_stm32f411retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Startup/startup_stm32f411retx.o" "../Core/Startup/startup_stm32f411retx.s"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17468	    112	   2064	  19644	   4cbc	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+08:22:06 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17456	    112	   2064	  19632	   4cb0	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+08:23:42 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17456	    112	   2064	  19632	   4cb0	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+08:25:10 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17456	    112	   2064	  19632	   4cb0	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+08:27:45 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17456	    112	   2064	  19632	   4cb0	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+08:28:52 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17456	    112	   2064	  19632	   4cb0	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+08:31:54 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:190:1: error: expected identifier or '(' before '}' token
+  190 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+08:32:22 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17456	    112	   2064	  19632	   4cb0	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+08:32:28 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17456	    112	   2064	  19632	   4cb0	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+08:35:00 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:191:1: error: expected identifier or '(' before '}' token
+  191 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+08:35:17 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17456	    112	   2064	  19632	   4cb0	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+08:35:23 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17456	    112	   2064	  19632	   4cb0	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+08:43:39 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17496	    112	   2064	  19672	   4cd8	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+08:44:38 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17496	    112	   2064	  19672	   4cd8	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+08:45:04 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17496	    112	   2064	  19672	   4cd8	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+08:58:58 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17496	    112	   2064	  19672	   4cd8	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+09:14:39 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:119:6: error: 'RUN' redeclared as different kind of symbol
+  119 | void RUN(void);
+      |      ^~~
+../Core/Src/main.c:71:9: note: previous definition of 'RUN' with type 'enum STATE_OF_PROGRAM'
+   71 |         RUN,
+      |         ^~~
+../Core/Src/main.c: In function 'START_PULSES':
+../Core/Src/main.c:363:17: error: case label does not reduce to an integer constant
+  363 |                 case RUN:
+      |                 ^~~~
+../Core/Src/main.c:369:29: error: invalid operands to binary > (have 'int' and 'variable_to_set_driver')
+  369 |                         if(i>VAR_TO_SET_DRIVER){
+      |                             ^
+../Core/Src/main.c:362:17: warning: enumeration value 'RUN' not handled in switch [-Wswitch]
+  362 |                 switch(state){
+      |                 ^~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+09:15:22 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'START_PULSES':
+../Core/Src/main.c:369:29: error: invalid operands to binary > (have 'int' and 'variable_to_set_driver')
+  369 |                         if(i>VAR_TO_SET_DRIVER){
+      |                             ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+09:15:32 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17528	    112	   2064	  19704	   4cf8	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+09:16:58 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17548	    112	   2064	  19724	   4d0c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+09:17:04 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17548	    112	   2064	  19724	   4d0c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+09:19:19 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'START_PULSES':
+../Core/Src/main.c:361:17: error: lvalue required as left operand of assignment
+  361 |         int j=1i=0;
+      |                 ^
+../Core/Src/main.c:363:15: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  363 |         while(j=1){
+      |               ^
+../Core/Src/main.c:370:25: error: 'i' undeclared (first use in this function)
+  370 |                         i++;
+      |                         ^
+../Core/Src/main.c:370:25: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+09:19:28 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'START_PULSES':
+../Core/Src/main.c:361:17: error: lvalue required as left operand of assignment
+  361 |         int j=1i=0;
+      |                 ^
+../Core/Src/main.c:370:25: error: 'i' undeclared (first use in this function)
+  370 |                         i++;
+      |                         ^
+../Core/Src/main.c:370:25: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+09:19:33 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17576	    112	   2064	  19752	   4d28	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+09:19:37 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17576	    112	   2064	  19752	   4d28	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+10:03:44 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17564	    112	   2064	  19740	   4d1c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+10:35:06 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17564	    112	   2064	  19740	   4d1c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+10:44:17 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17564	    112	   2064	  19740	   4d1c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+11:21:16 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'CHANGE_DIRECTION':
+../Core/Src/main.c:362:45: warning: statement with no effect [-Wunused-value]
+  362 |                 VAR_TO_SET_DRIVER.direction == BACKWARD;
+      |                                             ^
+../Core/Src/main.c:365:45: warning: statement with no effect [-Wunused-value]
+  365 |                 VAR_TO_SET_DRIVER.direction == FORWARD;
+      |                                             ^
+../Core/Src/main.c: In function 'START_PULSES':
+../Core/Src/main.c:386:33: warning: statement with no effect [-Wunused-value]
+  386 |                                 CHANGE_DIRECTION
+      |                                 ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:386:49: error: expected ';' before '}' token
+  386 |                                 CHANGE_DIRECTION
+      |                                                 ^
+      |                                                 ;
+  387 |                         }
+      |                         ~                        
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+11:21:33 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17668	    112	   2072	  19852	   4d8c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+11:21:41 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17668	    112	   2072	  19852	   4d8c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+11:25:58 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17668	    112	   2072	  19852	   4d8c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+11:33:11 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17668	    112	   2072	  19852	   4d8c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+11:42:34 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17668	    112	   2072	  19852	   4d8c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+11:45:51 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17672	    112	   2072	  19856	   4d90	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+11:45:56 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17672	    112	   2072	  19856	   4d90	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+11:52:32 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17684	    112	   2072	  19868	   4d9c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+12:07:43 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17692	    112	   2072	  19876	   4da4	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+12:11:11 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17692	    112	   2072	  19876	   4da4	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+12:19:24 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17692	    112	   2072	  19876	   4da4	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+12:21:21 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17680	    112	   2072	  19864	   4d98	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+13:04:34 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17680	    112	   2072	  19864	   4d98	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+13:06:25 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17680	    112	   2072	  19864	   4d98	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+13:09:46 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'START_PULSES':
+../Core/Src/main.c:391:52: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  391 |                         HAL_UART_Transmit(&huart2, '1', 1, 0);
+      |                                                    ^~~
+      |                                                    |
+      |                                                    int
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'int'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17696	    112	   2072	  19880	   4da8	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+13:09:58 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'START_PULSES':
+../Core/Src/main.c:391:52: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  391 |                         HAL_UART_Transmit(&huart2, 1, 1, 0);
+      |                                                    ^
+      |                                                    |
+      |                                                    int
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'int'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17696	    112	   2072	  19880	   4da8	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+13:10:37 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'START_PULSES':
+../Core/Src/main.c:391:63: error: 'driver_stop' undeclared (first use in this function)
+  391 |                         HAL_UART_Transmit(&huart2, (uint8_t*)&driver_stop, 1, 0);
+      |                                                               ^~~~~~~~~~~
+../Core/Src/main.c:391:63: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+13:11:23 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17684	    112	   2072	  19868	   4d9c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+13:37:34 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17684	    112	   2072	  19868	   4d9c	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+13:51:22 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stepper_motor_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Karol\Desktop\silnik krokowy\stm32_f4\stepper_motor_driver\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stepper_motor_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stepper_motor_driver.elf
+ 
+arm-none-eabi-size   stepper_motor_driver.elf 
+arm-none-eabi-objdump -h -S  stepper_motor_driver.elf  > "stepper_motor_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  17692	    112	   2072	  19876	   4da4	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stepper_motor_driver.list
+ 
+14:00:12 **** Incremental Build of configuration Debug for project stepper_motor_driver ****
+make -j4 all 
+arm-none-eabi-size   stepper_motor_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17692	    112	   2072	  19876	   4da4	stepper_motor_driver.elf
+Finished building: default.size.stdout
+ 
